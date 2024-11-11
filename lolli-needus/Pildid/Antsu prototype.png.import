@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcejmm5oyseir"
-path="res://.godot/imported/Antsu prototype.png-a8905a2bd5fab3534732a45d796a5ca5.ctex"
+path="res://.godot/imported/Antsu prototype.png-0138547d7893a8a2517ace0ad5a8b827.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Antsu prototype.png"
-dest_files=["res://.godot/imported/Antsu prototype.png-a8905a2bd5fab3534732a45d796a5ca5.ctex"]
+source_file="res://Pildid/Antsu prototype.png"
+dest_files=["res://.godot/imported/Antsu prototype.png-0138547d7893a8a2517ace0ad5a8b827.ctex"]
 
 [params]
 

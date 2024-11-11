@@ -1,3 +1,5 @@
-res://Ants.tscn
-res://character_body_2d.gd
 res://Maailm.tscn
+res://Scenes/Ants.tscn
+res://Stseenid/Ants.tscn
+res://Stseenid/Maailm.tscn
+res://Stseenid/killzone.tscn

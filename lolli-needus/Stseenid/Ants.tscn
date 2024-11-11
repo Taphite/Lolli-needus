@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bakksvetv1h68"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_wtbaq"]
-[ext_resource type="Texture2D" uid="uid://bcejmm5oyseir" path="res://Antsu prototype.png" id="2_sw6gk"]
+[ext_resource type="Script" path="res://Skriptid/character_body_2d.gd" id="1_wtbaq"]
+[ext_resource type="Texture2D" uid="uid://bcejmm5oyseir" path="res://Pildid/Antsu prototype.png" id="2_sw6gk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgpnf"]
 size = Vector2(8, 8)
