@@ -1,11 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731361318
+::res://::1731398115
 icon.svg::CompressedTexture2D::434974255559625113::1731358739::1731360125::1::::<><>::
 ::res://Pildid/::1731361318
 Antsu prototype.png::CompressedTexture2D::2535624441740376449::1731359915::1731361263::1::::<><>::
 Sprute.png::CompressedTexture2D::5578006973398357408::1731361314::1731361318::1::::<><>::
-::res://Skriptid/::1731361318
+::res://Skriptid/::1731398115
+area_2d.gd::GDScript::-1::1731397544::0::1::::<>Area2D<>::
 character_body_2d.gd::GDScript::-1::1731360364::0::1::::<>CharacterBody2D<>::
-::res://Stseenid/::1731361277
-Ants.tscn::PackedScene::2407704885513589467::1731361277::0::1::::<><>::res://Skriptid/character_body_2d.gd<>uid://bcejmm5oyseir::::res://Pildid/Antsu prototype.png
-Maailm.tscn::PackedScene::7071338235619614329::1731361254::0::1::::<><>::uid://bakksvetv1h68::::res://Stseenid/Ants.tscn
+::res://Stseenid/::1731398248
+Ants.tscn::PackedScene::2407704885513589467::1731398008::0::1::::<><>::res://Skriptid/character_body_2d.gd<>uid://bcejmm5oyseir::::res://Pildid/Antsu prototype.png
+killzone.tscn::PackedScene::5180805403644346533::1731398333::0::1::::<><>::res://Stseenid/killzone.gd
+Maailm.tscn::PackedScene::7071338235619614329::1731398248::0::1::::<><>::uid://bakksvetv1h68::::res://Stseenid/Ants.tscn<>uid://clqa7vvybvyrg::::res://Pildid/Sprute.png
+killzone.gd::GDScript::-1::1731398322::0::1::::<>Area2D<>::

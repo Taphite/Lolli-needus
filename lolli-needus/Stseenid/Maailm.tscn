@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://c70n54grrrbuv"]
+[gd_scene load_steps=7 format=3 uid="uid://c70n54grrrbuv"]
 
 [ext_resource type="PackedScene" uid="uid://bakksvetv1h68" path="res://Stseenid/Ants.tscn" id="1_ivo64"]
 [ext_resource type="Texture2D" uid="uid://clqa7vvybvyrg" path="res://Pildid/Sprute.png" id="2_vh06m"]
+[ext_resource type="PackedScene" uid="uid://cf2vdw6xxei7v" path="res://Stseenid/killzone.tscn" id="3_nevsr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ul42"]
 texture = ExtResource("2_vh06m")
@@ -406,10 +407,13 @@ texture = ExtResource("2_vh06m")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_7ul42")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a7lka"]
+distance = 2.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Node2D" parent="." instance=ExtResource("1_ivo64")]
-position = Vector2(-25, -167)
+position = Vector2(-24, -166)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4s2tq")
@@ -419,5 +423,11 @@ layer_0/tile_data = PackedInt32Array(-655356, 0, 11, -655355, 0, 11, -720896, 13
 [node name="Layer1" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
 position = Vector2(-14, -1)
-tile_map_data = PackedByteArray("AAAKAAAAAAADAAUAAAAJAAAAAAADAAUAAAAIAAAAAAADAAUAAAAHAAAAAAADAAUAAAAGAAAAAAADAAUAAAAFAAAAAAADAAUAAAAEAAAAAAADAAUAAAADAAAAAAADAAUAAAACAAAAAAADAAUAAAABAAAAAAADAAUAAAAAAAAAAAADAAUAAAD//wAAAAADAAUAAAD+/wAAAAADAAUAAAD9/wAAAAADAAUAAAD8/wAAAAADAAUAAAD7/wAAAAADAAUAAAD6/wAAAAADAAUAAAD5/wAAAAADAAUAAAD4/wAAAAADAAUAAAD3/wAAAAADAAUAAAD2/wAAAAADAAUAAAD1/wAAAAADAAUAAAD0/wAAAAADAAUAAADz/wAAAAADAAUAAADy/wAAAAADAAUAAAALAAAAAAADAAUAAAAMAAAAAAADAAUAAAANAAAAAAADAAUAAAA=")
 tile_set = SubResource("TileSet_4s2tq")
+
+[node name="killzone" parent="." instance=ExtResource("3_nevsr")]
+position = Vector2(1, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(-1, -4)
+shape = SubResource("WorldBoundaryShape2D_a7lka")
