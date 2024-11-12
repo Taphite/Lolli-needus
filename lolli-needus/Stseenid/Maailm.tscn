@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c70n54grrrbuv"]
+[gd_scene load_steps=10 format=3 uid="uid://c70n54grrrbuv"]
 
 [ext_resource type="PackedScene" uid="uid://bakksvetv1h68" path="res://Stseenid/Ants.tscn" id="1_ivo64"]
 [ext_resource type="Texture2D" uid="uid://clqa7vvybvyrg" path="res://Pildid/Sprute.png" id="2_vh06m"]
 [ext_resource type="PackedScene" uid="uid://cf2vdw6xxei7v" path="res://Stseenid/killzone.tscn" id="3_nevsr"]
 [ext_resource type="Texture2D" uid="uid://cc2a57yg3pbmn" path="res://Pildid/Oga.png" id="4_01cy0"]
+[ext_resource type="Texture2D" uid="uid://dkdiv3wt74dxc" path="res://Pildid/background.png" id="5_yskyy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ul42"]
 texture = ExtResource("2_vh06m")
@@ -447,3 +448,11 @@ shape = SubResource("RectangleShape2D_7ecua")
 position = Vector2(6, 31.5)
 scale = Vector2(2, 1.875)
 texture = ExtResource("4_01cy0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, -211)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+z_index = -10
+position = Vector2(177, 134)
+texture = ExtResource("5_yskyy")

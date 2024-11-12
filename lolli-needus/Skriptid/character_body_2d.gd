@@ -58,14 +58,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func start_dash():
+	if !$dashtimer.is_connected("timeout", stop_dash):
+		$dashtimer.connect("timeout", stop_dash)
 	is_dashing = true
-	$dashtimer.connect("timeout", stop_dash)
 	$dashtimer.start()
 	$dashparticles.emitting = true
 		
 func stop_dash():
 	is_dashing = false 
 	$dashparticles.emitting = false
+
 	
 	
 	
