@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c70n54grrrbuv"]
+[gd_scene load_steps=9 format=3 uid="uid://c70n54grrrbuv"]
 
 [ext_resource type="PackedScene" uid="uid://bakksvetv1h68" path="res://Stseenid/Ants.tscn" id="1_ivo64"]
 [ext_resource type="Texture2D" uid="uid://clqa7vvybvyrg" path="res://Pildid/Sprute.png" id="2_vh06m"]
 [ext_resource type="PackedScene" uid="uid://cf2vdw6xxei7v" path="res://Stseenid/killzone.tscn" id="3_nevsr"]
+[ext_resource type="Texture2D" uid="uid://cc2a57yg3pbmn" path="res://Pildid/Oga.png" id="4_01cy0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ul42"]
 texture = ExtResource("2_vh06m")
@@ -410,6 +411,9 @@ sources/0 = SubResource("TileSetAtlasSource_7ul42")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a7lka"]
 distance = 2.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ecua"]
+size = Vector2(12, 11.5)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Node2D" parent="." instance=ExtResource("1_ivo64")]
@@ -431,3 +435,15 @@ position = Vector2(1, 5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(-1, -4)
 shape = SubResource("WorldBoundaryShape2D_a7lka")
+
+[node name="Spiketrap" parent="." instance=ExtResource("3_nevsr")]
+position = Vector2(50, -199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spiketrap"]
+position = Vector2(6, 30)
+shape = SubResource("RectangleShape2D_7ecua")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spiketrap"]
+position = Vector2(6, 31.5)
+scale = Vector2(2, 1.875)
+texture = ExtResource("4_01cy0")

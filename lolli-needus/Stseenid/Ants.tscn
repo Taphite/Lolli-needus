@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bakksvetv1h68"]
+[gd_scene load_steps=6 format=3 uid="uid://bakksvetv1h68"]
 
 [ext_resource type="Script" path="res://Skriptid/character_body_2d.gd" id="1_wtbaq"]
 [ext_resource type="Texture2D" uid="uid://bcejmm5oyseir" path="res://Pildid/Antsu prototype.png" id="2_sw6gk"]
+[ext_resource type="Texture2D" uid="uid://8qou0yr71m1s" path="res://Pildid/particles.png" id="3_rpw6k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgpnf"]
 size = Vector2(8, 8)
+
+[sub_resource type="Curve" id="Curve_bmi61"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,3 +30,23 @@ limit_bottom = -40
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
+
+[node name="dashtimer" type="Timer" parent="CharacterBody2D"]
+wait_time = 0.1
+one_shot = true
+
+[node name="dashparticles" type="CPUParticles2D" parent="CharacterBody2D"]
+z_index = 1
+emitting = false
+lifetime = 0.5
+randomness = 0.46
+local_coords = true
+draw_order = 1
+texture = ExtResource("3_rpw6k")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 8)
+gravity = Vector2(-2000, 980)
+linear_accel_max = 66.42
+linear_accel_curve = SubResource("Curve_bmi61")
+scale_amount_min = 0.0
+scale_amount_max = 0.2
