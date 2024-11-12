@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 80.0
 const JUMP_VELOCITY = -200.0
 var jump_count = 0
-var DASH_SPEED = 4
+var DASH_SPEED = 3
 var is_dashing = false
 
 
@@ -45,11 +45,11 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.x > 0:
 		$Sprite2D.flip_h = false
-		$dashparticles.gravity.x = -2000
+		$dashparticles.gravity.x = -1000
 	
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
-		$dashparticles.gravity.x = 2000
+		$dashparticles.gravity.x = 1000
 	
 	
 	
@@ -66,3 +66,16 @@ func start_dash():
 func stop_dash():
 	is_dashing = false 
 	$dashparticles.emitting = false
+	
+	
+	
+		
+	
+	
+		
+	
+		
+	
+
+
+	

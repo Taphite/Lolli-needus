@@ -1,15 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731402284
-icon.svg::CompressedTexture2D::434974255559625113::1731358739::1731360125::1::::<><>::
-::res://Pildid/::1731403507
+::res://::1731414895
+icon.png::CompressedTexture2D::4541088999917318057::1731414324::1731414324::1::::<><>::
+icon.svg::CompressedTexture2D::6071698235252478689::1731414482::1731414494::1::::<><>::
+::res://Pildid/::1731403512
 Antsu prototype.png::CompressedTexture2D::2535624441740376449::1731359915::1731361263::1::::<><>::
 Oga.png::CompressedTexture2D::4969012545972159393::1731400872::1731400885::1::::<><>::
 particles.png::CompressedTexture2D::2350148988872114726::1731403507::1731403512::1::::<><>::
 Sprute.png::CompressedTexture2D::5578006973398357408::1731361314::1731361318::1::::<><>::
-::res://Skriptid/::1731402761
-character_body_2d.gd::GDScript::-1::1731402761::0::1::::<>CharacterBody2D<>::
+::res://Skriptid/::1731414737
+character_body_2d.gd::GDScript::-1::1731414737::0::1::::<>CharacterBody2D<>::
 killzone.gd::GDScript::-1::1731399644::0::1::::<>Area2D<>::
-::res://Stseenid/::1731402762
-Ants.tscn::PackedScene::2407704885513589467::1731402762::0::1::::<><>::res://Skriptid/character_body_2d.gd<>uid://bcejmm5oyseir::::res://Pildid/Antsu prototype.png
-killzone.tscn::PackedScene::5180805403644346533::1731402762::0::1::::<><>::res://Skriptid/killzone.gd
-Maailm.tscn::PackedScene::7071338235619614329::1731402762::0::1::::<><>::uid://bakksvetv1h68::::res://Stseenid/Ants.tscn<>uid://clqa7vvybvyrg::::res://Pildid/Sprute.png<>uid://cf2vdw6xxei7v::::res://Stseenid/killzone.tscn<>uid://cc2a57yg3pbmn::::res://Pildid/Oga.png
+::res://Stseenid/::1731414778
+Ants.tscn::PackedScene::2407704885513589467::1731414777::0::1::::<><>::res://Skriptid/character_body_2d.gd<>uid://bcejmm5oyseir::::res://Pildid/Antsu prototype.png<>uid://8qou0yr71m1s::::res://Pildid/particles.png
+killzone.tscn::PackedScene::5180805403644346533::1731414778::0::1::::<><>::res://Skriptid/killzone.gd
+Maailm.tscn::PackedScene::7071338235619614329::1731414777::0::1::::<><>::uid://bakksvetv1h68::::res://Stseenid/Ants.tscn<>uid://clqa7vvybvyrg::::res://Pildid/Sprute.png<>uid://cf2vdw6xxei7v::::res://Stseenid/killzone.tscn<>uid://cc2a57yg3pbmn::::res://Pildid/Oga.png
