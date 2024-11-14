@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -200.0
 var jump_count = 0
 var DASH_SPEED = 3
 var is_dashing = false
+var stamina = 100
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,17 +24,26 @@ func _physics_process(delta: float) -> void:
 		
 	if !Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		jump_count = 0
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("dash") and stamina >= 20:
 		if !is_dashing and direction:
 			start_dash()
+			stamina -= 20
 			
-	if Input.is_action_just_pressed("attack"):
+			
+	if stamina < 100:
+		stamina += 0.2
+	
+	
+	$Camera2D/Label.text = str(round(stamina))
+	
+	
+	if Input.is_action_just_pressed("attack") and stamina >= 10:
 		attack()
+		stamina -= 10
 	
 	if direction:
 		if is_dashing:
@@ -43,7 +53,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-
+	
+	
 
 
 	if velocity.x > 0:
@@ -83,4 +94,5 @@ func attack():
 		$attack_hitbox/attack_timer.start()
 		for body in $attack_hitbox.get_overlapping_bodies():
 			print("kokkupõrge ", body )
+		
 		
