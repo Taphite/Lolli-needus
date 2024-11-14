@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bakksvetv1h68"]
+[gd_scene load_steps=7 format=3 uid="uid://bakksvetv1h68"]
 
 [ext_resource type="Script" path="res://Skriptid/character_body_2d.gd" id="1_wtbaq"]
 [ext_resource type="Texture2D" uid="uid://bcejmm5oyseir" path="res://Pildid/Antsu prototype.png" id="2_sw6gk"]
@@ -13,29 +13,32 @@ max_value = 200.0
 _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b14jw"]
+size = Vector2(5, 6)
+
 [node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="ants" type="CharacterBody2D" parent="."]
 script = ExtResource("1_wtbaq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ants"]
 shape = SubResource("RectangleShape2D_lgpnf")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="ants"]
 texture = ExtResource("2_sw6gk")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="ants"]
 zoom = Vector2(5, 5)
 limit_bottom = -40
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="dashtimer" type="Timer" parent="CharacterBody2D"]
+[node name="dashtimer" type="Timer" parent="ants"]
 wait_time = 0.3
 one_shot = true
 
-[node name="dashparticles" type="CPUParticles2D" parent="CharacterBody2D"]
+[node name="dashparticles" type="CPUParticles2D" parent="ants"]
 z_index = 1
 emitting = false
 lifetime = 0.15
@@ -49,3 +52,14 @@ gravity = Vector2(-1, -500)
 linear_accel_curve = SubResource("Curve_bmi61")
 scale_amount_min = 0.0
 scale_amount_max = 0.2
+
+[node name="attack_hitbox" type="Area2D" parent="ants"]
+
+[node name="attack_shape" type="CollisionShape2D" parent="ants/attack_hitbox"]
+position = Vector2(7.5, 0)
+shape = SubResource("RectangleShape2D_b14jw")
+
+[node name="attack_timer" type="Timer" parent="ants/attack_hitbox"]
+one_shot = true
+
+[connection signal="area_entered" from="ants/attack_hitbox" to="ants" method="_on_attack_hitbox_area_entered"]

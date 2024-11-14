@@ -7,7 +7,6 @@ var jump_count = 0
 var DASH_SPEED = 3
 var is_dashing = false
 
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -32,6 +31,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash"):
 		if !is_dashing and direction:
 			start_dash()
+			
+	if Input.is_action_just_pressed("attack"):
+		attack()
 	
 	if direction:
 		if is_dashing:
@@ -43,14 +45,22 @@ func _physics_process(delta: float) -> void:
 
 
 
+
 	if velocity.x > 0:
-		$Sprite2D.flip_h = false
+		#$Sprite2D.flip_h = false
 		$dashparticles.gravity.x = -1000
-	
+		$attack_hitbox.scale = Vector2(1, 1)
+		
+		
 	if velocity.x < 0:
-		$Sprite2D.flip_h = true
+		#$Sprite2D.flip_h = true
 		$dashparticles.gravity.x = 1000
-	
+		$attack_hitbox.scale = Vector2(-1, 1)
+		
+		
+		
+		
+		
 	
 	
 	
@@ -68,16 +78,9 @@ func stop_dash():
 	is_dashing = false 
 	$dashparticles.emitting = false
 
-	
-	
-	
+func attack():
+	if $attack_hitbox/attack_timer.time_left == 0:
+		$attack_hitbox/attack_timer.start()
+		for body in $attack_hitbox.get_overlapping_bodies():
+			print("kokkupõrge ", body )
 		
-	
-	
-		
-	
-		
-	
-
-
-	

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcgipbgtok6cp"]
+
+[ext_resource type="Texture2D" uid="uid://c4w1k4sqkj0h6" path="res://Pildid/enemy.png" id="1_xgdmd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr316"]
+size = Vector2(8, 8)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="vastane" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="vastane"]
+texture = ExtResource("1_xgdmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vastane"]
+shape = SubResource("RectangleShape2D_gr316")
