@@ -1,25 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcgipbgtok6cp"]
+[gd_scene load_steps=3 format=3 uid="uid://dcgipbgtok6cp"]
 
-[ext_resource type="Script" path="res://Skriptid/vastane.gd" id="1_6854h"]
+[ext_resource type="Script" path="res://Skriptid/vastane.gd" id="1_mtx46"]
 [ext_resource type="Texture2D" uid="uid://c4w1k4sqkj0h6" path="res://Pildid/enemy.png" id="1_xgdmd"]
-[ext_resource type="PackedScene" uid="uid://cf2vdw6xxei7v" path="res://Stseenid/killzone.tscn" id="2_1f87v"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr316"]
-size = Vector2(8, 8)
 
 [node name="vastane" type="Node2D"]
-script = ExtResource("1_6854h")
+script = ExtResource("1_mtx46")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xgdmd")
 
-[node name="killzone" parent="." instance=ExtResource("2_1f87v")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-shape = SubResource("RectangleShape2D_gr316")
-
 [node name="raycastright" type="RayCast2D" parent="."]
-target_position = Vector2(7, 0)
+target_position = Vector2(5, 0)
 
 [node name="raycastleft" type="RayCast2D" parent="."]
-target_position = Vector2(-7, 0)
+target_position = Vector2(-5, 0)
+
+[node name="enemyatktimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

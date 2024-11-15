@@ -41,11 +41,17 @@ func _physics_process(delta: float) -> void:
 		stamina += 0.2
 	elif stamina == 0:
 		$Timer.start()
+		
+	if Sv.player_health <= 0:
+		Sv.player_health = 100
+		print('you died')
+		get_tree().reload_current_scene()
 
 		
 	
 	
-	$Camera2D/Label.text = str(round(stamina))
+	$Camera2D/stamina.text = str(round(stamina))
+	$Camera2D/health.text = str(round(Sv.player_health))
 	
 	
 	if Input.is_action_just_pressed("attack") and stamina >= 10:
