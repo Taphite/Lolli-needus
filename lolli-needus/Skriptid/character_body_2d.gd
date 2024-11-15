@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jump_count = 2
 		stamina -= 10
+		$DJparticles.emitting = true
 		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

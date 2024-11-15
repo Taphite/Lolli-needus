@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bakksvetv1h68"]
+[gd_scene load_steps=8 format=3 uid="uid://bakksvetv1h68"]
 
 [ext_resource type="Script" path="res://Skriptid/character_body_2d.gd" id="1_wtbaq"]
 [ext_resource type="Texture2D" uid="uid://bcejmm5oyseir" path="res://Pildid/Antsu prototype.png" id="2_sw6gk"]
@@ -15,6 +15,12 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b14jw"]
 size = Vector2(5, 6)
+
+[sub_resource type="Curve" id="Curve_l7xq5"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, -6.59341), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Node2D" type="Node2D"]
 
@@ -71,6 +77,18 @@ one_shot = true
 
 [node name="cooldown" type="Timer" parent="ants"]
 one_shot = true
+
+[node name="DJparticles" type="CPUParticles2D" parent="ants"]
+emitting = false
+amount = 25
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.55
+randomness = 0.54
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+linear_accel_curve = SubResource("Curve_l7xq5")
+color = Color(0.336608, 0.336608, 0.336608, 1)
 
 [connection signal="area_entered" from="ants/attack_hitbox" to="ants" method="_on_attack_hitbox_area_entered"]
 [connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]
