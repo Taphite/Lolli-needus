@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and jump_count == 1:
 		velocity.y = JUMP_VELOCITY
 		jump_count = 2
+		stamina -= 10
 		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -24,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		
 	if !Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		jump_count = 0
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -36,6 +38,10 @@ func _physics_process(delta: float) -> void:
 			
 	if stamina < 100:
 		stamina += 0.2
+	elif stamina == 0:
+		$Timer.start()
+
+		
 	
 	
 	$Camera2D/Label.text = str(round(stamina))
