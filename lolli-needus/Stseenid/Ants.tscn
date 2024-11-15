@@ -91,5 +91,5 @@ linear_accel_curve = SubResource("Curve_l7xq5")
 color = Color(0.336608, 0.336608, 0.336608, 1)
 
 [connection signal="area_entered" from="ants/attack_hitbox" to="ants" method="_on_attack_hitbox_area_entered"]
-[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]
 [connection signal="timeout" from="ants/cooldown" to="ants" method="_on_timer_timeout"]
+[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]
