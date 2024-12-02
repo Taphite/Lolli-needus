@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	if $raycastright.is_colliding():
 		direction = -1
 		#for body in $raycastright.get_collider():
-		print("kokkupõrge ", $raycastright.get_collider().name )
 		if $raycastright.get_collider().name == "ants" and $enemyatktimer.time_left == 0:
 			Sv.player_health -= 20
 			$enemyatktimer.start()
@@ -22,7 +21,6 @@ func _process(delta: float) -> void:
 	if $raycastleft.is_colliding():
 		direction = 1
 		#for body in $raycastleft.get_collider():
-		print("kokkupõrge ", $raycastleft.get_collider().name )
 		if $raycastleft.get_collider().name == "ants" and $enemyatktimer.time_left == 0:
 			Sv.player_health -= 20
 			$enemyatktimer.start()

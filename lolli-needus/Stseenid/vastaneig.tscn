@@ -9,6 +9,14 @@ script = ExtResource("1_mtx46")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xgdmd")
 
+[node name="enemyhp" type="ProgressBar" parent="Sprite2D"]
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 6.0
+offset_bottom = -7.0
+value = 4.74
+show_percentage = false
+
 [node name="raycastright" type="RayCast2D" parent="."]
 target_position = Vector2(5, 0)
 

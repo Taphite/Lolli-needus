@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 [autoload]
 
 Sv="*res://Skriptid/SV.gd"
+DungeonGeneration="*res://Skriptid/dungeon_generation.gd"
 
 [input]
 
