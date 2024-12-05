@@ -100,5 +100,5 @@ offset_bottom = 63.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 
 [connection signal="area_entered" from="ants/attack_hitbox" to="ants" method="_on_attack_hitbox_area_entered"]
-[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_timer_timeout"]
 [connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]
+[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_timer_timeout"]

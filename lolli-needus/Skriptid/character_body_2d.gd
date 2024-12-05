@@ -3,19 +3,27 @@ extends CharacterBody2D
 
 const SPEED = 80.0
 const JUMP_VELOCITY = -200.0
+const FRICTION = 75
 var jump_count = 0
 var DASH_SPEED = 3
 var is_dashing = false
 var stamina = 100
 var walljump_count = 0
 
+
 func _physics_process(delta: float) -> void:
+	var direction := Input.get_axis("ui_left", "ui_right")
+	print($attack_hitbox.scale)
+	var old_velocity = velocity
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if is_on_wall() and !is_on_floor():
+		velocity -= old_velocity * FRICTION * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and jump_count == 1 and not is_on_wall():
+	if Input.is_action_just_pressed("ui_accept") and jump_count == 1 and !is_on_wall():
 		velocity.y = JUMP_VELOCITY
 		jump_count = 2
 		stamina -= 10
@@ -29,15 +37,24 @@ func _physics_process(delta: float) -> void:
 		jump_count = 0
 		walljump_count = 0
 		
-	if Input.is_action_just_pressed("ui_accept") and Input.is_action_pressed("ui_left") and is_on_wall() and walljump_count < 3 and jump_count == 1 and not is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		walljump_count += 1
+	if Input.is_action_just_pressed("ui_accept") and is_on_wall() and walljump_count < 3 and jump_count == 1 and !is_on_floor():
+		if $attack_hitbox.scale == Vector2(1, 1):
+			velocity.y = -200
+			velocity.x = -250
+			walljump_count += 1
+		elif $attack_hitbox.scale == Vector2(-1, 1):
+			velocity.y = -200
+			velocity.x = 250
+			walljump_count += 1
 		
-	if Input.is_action_just_pressed("ui_accept") and Input.is_action_pressed("ui_right") and is_on_wall() and walljump_count < 3 and jump_count == 1 and not is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		walljump_count += 1
+	
+		
+	
+		 
 		
 		
+	
+	
 
 	
 		
@@ -45,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	
 	
 	if Input.is_action_just_pressed("dash") and stamina >= 20:
 		if !is_dashing and direction:
@@ -90,7 +107,7 @@ func _physics_process(delta: float) -> void:
 		#$Sprite2D.flip_h = false
 		$dashparticles.gravity.x = -1000
 		$attack_hitbox.scale = Vector2(1, 1)
-		
+
 		
 	if velocity.x < 0:
 		#$Sprite2D.flip_h = true
@@ -122,7 +139,11 @@ func attack():
 	if $attack_hitbox/attack_timer.time_left == 0:
 		$attack_hitbox/attack_timer.start()
 		for body in $attack_hitbox.get_overlapping_bodies():
-			print("kokkupõrge ", body )
-		
+			print(body.name)
+			if body.name == "enemy":
+				body.take_damage(50)
+				print("Body detected:", body)
+				print("Type:", body.get_class())
+				print("Script attached:", body.get_script())
 
 		
