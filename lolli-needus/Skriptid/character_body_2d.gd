@@ -13,7 +13,6 @@ var walljump_count = 0
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
-	print($attack_hitbox.scale)
 	var old_velocity = velocity
 	# Add the gravity.
 	if not is_on_floor():
@@ -42,11 +41,12 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -200
 			velocity.x = -250
 			walljump_count += 1
+			$walljumpparticles.emitting = true
 		elif $attack_hitbox.scale == Vector2(-1, 1):
 			velocity.y = -200
 			velocity.x = 250
 			walljump_count += 1
-		
+			$walljumpparticles.emitting = true
 	
 		
 	
@@ -104,15 +104,16 @@ func _physics_process(delta: float) -> void:
 
 
 	if velocity.x > 0:
-		#$Sprite2D.flip_h = false
+		$AnimatedSprite2D.flip_h = false
 		$dashparticles.gravity.x = -1000
 		$attack_hitbox.scale = Vector2(1, 1)
-
+		$walljumpparticles.gravity.x = -1000
 		
 	if velocity.x < 0:
-		#$Sprite2D.flip_h = true
+		$AnimatedSprite2D.flip_h = true
 		$dashparticles.gravity.x = 1000
 		$attack_hitbox.scale = Vector2(-1, 1)
+		$walljumpparticles.gravity.x = 1000
 		
 		
 		
