@@ -119,6 +119,12 @@ offset_right = 113.0
 offset_bottom = 63.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 
+[node name="Money" type="Label" parent="ants"]
+offset_left = -107.0
+offset_top = -62.0
+offset_right = -67.0
+offset_bottom = -39.0
+
 [node name="walljumpparticles" type="CPUParticles2D" parent="ants"]
 emitting = false
 lifetime = 0.1

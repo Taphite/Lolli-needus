@@ -49,5 +49,6 @@ func _process(delta: float) -> void:
 	$Label.text = str(round(enemy_health))
 	
 	if enemy_health == 0:
+		Sv.money += 1
 		queue_free()
 		

@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 	
 	$stamina.text = str(round(stamina))
 	$health.text = str(round(Sv.player_health))
-	
+	$Money.text = str(Sv.money) + "$"
 	
 	if Input.is_action_just_pressed("attack") and stamina >= 10:
 		attack()
