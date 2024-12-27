@@ -9,7 +9,7 @@ var DASH_SPEED = 3
 var is_dashing = false
 var stamina = 100
 var walljump_count = 0
-#test
+
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
