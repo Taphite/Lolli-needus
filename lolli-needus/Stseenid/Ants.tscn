@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bakksvetv1h68"]
+[gd_scene load_steps=14 format=3 uid="uid://bakksvetv1h68"]
 
 [ext_resource type="Script" path="res://Skriptid/character_body_2d.gd" id="1_wtbaq"]
-[ext_resource type="Texture2D" uid="uid://bsnrf0bmf2t8b" path="res://Pildid/ants kõrvale idle.png" id="2_1vmt7"]
+[ext_resource type="Texture2D" uid="uid://c37bvkbr7h08c" path="res://Pildid/Untitled.png" id="2_wfo2n"]
+[ext_resource type="Texture2D" uid="uid://cxxaa8cwjqscb" path="res://Pildid/Untitled 2.png" id="3_82kks"]
 [ext_resource type="Texture2D" uid="uid://8qou0yr71m1s" path="res://Pildid/particles.png" id="3_rpw6k"]
-[ext_resource type="Texture2D" uid="uid://bjwvtchv0x1vs" path="res://Pildid/ants kõrvale.png" id="3_upkks"]
+[ext_resource type="Texture2D" uid="uid://q3dc0sab16x1" path="res://Pildid/sword1.png" id="5_evup0"]
+[ext_resource type="Texture2D" uid="uid://eolomuax0aed" path="res://Pildid/sword2.png" id="6_i8p5y"]
+[ext_resource type="Texture2D" uid="uid://b2m8a37r2lreq" path="res://Pildid/sword3.png" id="7_ui5w6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgpnf"]
 size = Vector2(8, 8)
@@ -12,10 +15,10 @@ size = Vector2(8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1vmt7")
+"texture": ExtResource("2_wfo2n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_upkks")
+"texture": ExtResource("3_82kks")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -30,6 +33,26 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b14jw"]
 size = Vector2(5, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofkw7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_evup0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i8p5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ui5w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_evup0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="Curve" id="Curve_l7xq5"]
 min_value = -200.0
@@ -46,19 +69,20 @@ script = ExtResource("1_wtbaq")
 shape = SubResource("RectangleShape2D_lgpnf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ants"]
-position = Vector2(1.35525e-20, -2.84217e-14)
-scale = Vector2(0.85, 0.85)
+z_index = 4095
+position = Vector2(1.35525e-20, -0.3)
+scale = Vector2(0.85, 0.925)
 sprite_frames = SubResource("SpriteFrames_3ukh1")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame_progress = 0.271233
+frame = 1
+frame_progress = 0.433551
 
 [node name="Camera2D" type="Camera2D" parent="ants"]
 zoom = Vector2(5, 5)
-limit_bottom = -40
+limit_bottom = 0
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 7.0
 
 [node name="dashtimer" type="Timer" parent="ants"]
 wait_time = 0.3
@@ -88,6 +112,12 @@ shape = SubResource("RectangleShape2D_b14jw")
 [node name="attack_timer" type="Timer" parent="ants/attack_hitbox"]
 one_shot = true
 
+[node name="Attackanimation" type="AnimatedSprite2D" parent="ants/attack_hitbox"]
+z_index = 4094
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_ofkw7")
+frame_progress = 0.955652
+
 [node name="cooldown" type="Timer" parent="ants"]
 one_shot = true
 
@@ -103,33 +133,37 @@ emission_rect_extents = Vector2(1, 1)
 linear_accel_curve = SubResource("Curve_l7xq5")
 color = Color(0.336608, 0.336608, 0.336608, 1)
 
-[node name="stamina" type="Label" parent="ants"]
-z_index = 4096
-offset_left = -113.0
-offset_top = 40.0
-offset_right = -44.0
-offset_bottom = 63.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-
-[node name="health" type="Label" parent="ants"]
-z_index = 4096
-offset_left = 56.0
-offset_top = 40.0
-offset_right = 113.0
-offset_bottom = 63.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-
-[node name="Money" type="Label" parent="ants"]
-offset_left = -107.0
-offset_top = -62.0
-offset_right = -67.0
-offset_bottom = -39.0
-
 [node name="walljumpparticles" type="CPUParticles2D" parent="ants"]
 emitting = false
 lifetime = 0.1
 one_shot = true
 
+[node name="stamina" type="Label" parent="ants"]
+z_index = 4096
+offset_left = -115.0
+offset_top = 36.0
+offset_right = -68.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "AAAA"
+
+[node name="health" type="Label" parent="ants"]
+z_index = 4096
+offset_left = -115.0
+offset_top = 15.0
+offset_right = -72.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "AAAA"
+
+[node name="Money" type="Label" parent="ants"]
+z_index = 4096
+offset_left = -113.0
+offset_top = -66.0
+offset_right = -70.0
+offset_bottom = -43.0
+text = "AAAA"
+
 [connection signal="area_entered" from="ants/attack_hitbox" to="ants" method="_on_attack_hitbox_area_entered"]
-[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_timer_timeout"]
 [connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]
+[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_timer_timeout"]

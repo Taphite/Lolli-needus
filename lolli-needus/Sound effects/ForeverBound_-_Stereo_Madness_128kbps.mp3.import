@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3waqcs7vrief"
+path="res://.godot/imported/ForeverBound_-_Stereo_Madness_128kbps.mp3-f2a108f6cb184d1a47b9fe2b84dec463.mp3str"
+
+[deps]
+
+source_file="res://Sound effects/ForeverBound_-_Stereo_Madness_128kbps.mp3"
+dest_files=["res://.godot/imported/ForeverBound_-_Stereo_Madness_128kbps.mp3-f2a108f6cb184d1a47b9fe2b84dec463.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

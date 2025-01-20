@@ -90,6 +90,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack") and stamina >= 10:
 		attack()
 		stamina -= 10
+		$attack_hitbox/Attackanimation.play()
+		
 	
 	if direction:
 		if is_dashing:
