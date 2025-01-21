@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bakksvetv1h68"]
+[gd_scene load_steps=15 format=3 uid="uid://bakksvetv1h68"]
 
 [ext_resource type="Script" path="res://Skriptid/character_body_2d.gd" id="1_wtbaq"]
 [ext_resource type="Texture2D" uid="uid://c37bvkbr7h08c" path="res://Pildid/Untitled.png" id="2_wfo2n"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://q3dc0sab16x1" path="res://Pildid/sword1.png" id="5_evup0"]
 [ext_resource type="Texture2D" uid="uid://eolomuax0aed" path="res://Pildid/sword2.png" id="6_i8p5y"]
 [ext_resource type="Texture2D" uid="uid://b2m8a37r2lreq" path="res://Pildid/sword3.png" id="7_ui5w6"]
+[ext_resource type="AudioStream" uid="uid://cvns2xu4cb2ef" path="res://Sound effects/SWORD SLASH SOUND EFFECT  NO COPYRIGHT.wav" id="8_34aba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgpnf"]
 size = Vector2(8, 8)
@@ -117,6 +118,9 @@ z_index = 4094
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_ofkw7")
 frame_progress = 0.955652
+
+[node name="SwordSFX" type="AudioStreamPlayer2D" parent="ants/attack_hitbox"]
+stream = ExtResource("8_34aba")
 
 [node name="cooldown" type="Timer" parent="ants"]
 one_shot = true

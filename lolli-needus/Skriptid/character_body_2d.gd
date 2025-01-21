@@ -91,6 +91,7 @@ func _physics_process(delta: float) -> void:
 		attack()
 		stamina -= 10
 		$attack_hitbox/Attackanimation.play()
+		$attack_hitbox/SwordSFX.play()
 		
 	
 	if direction:
