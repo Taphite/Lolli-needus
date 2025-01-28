@@ -169,5 +169,5 @@ offset_bottom = -43.0
 text = "AAAA"
 
 [connection signal="area_entered" from="ants/attack_hitbox" to="ants" method="_on_attack_hitbox_area_entered"]
-[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]
 [connection signal="timeout" from="ants/cooldown" to="ants" method="_on_timer_timeout"]
+[connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]

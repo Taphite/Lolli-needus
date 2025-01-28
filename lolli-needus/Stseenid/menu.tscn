@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhphcpwut05lt"]
 
-[ext_resource type="Script" path="res://Stseenid/menu.gd" id="1_fdy0v"]
+[ext_resource type="Script" path="res://Skriptid/menu.gd" id="1_fdy0v"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -26,5 +26,11 @@ layout_mode = 2
 text = "Quit
 "
 
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Controls
+"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
