@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 Sv="*res://Skriptid/SV.gd"
 
+[display]
+
+window/size/mode=2
+
 [input]
 
 dash={
