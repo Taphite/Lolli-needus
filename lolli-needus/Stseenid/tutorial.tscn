@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://c70n54grrrbuv"]
 
-[ext_resource type="PackedScene" uid="uid://bakksvetv1h68" path="res://Stseenid/Ants.tscn" id="1_ivo64"]
-[ext_resource type="PackedScene" uid="uid://cf2vdw6xxei7v" path="res://Stseenid/killzone.tscn" id="3_nevsr"]
-[ext_resource type="Texture2D" uid="uid://c4jnp0rx2jl7b" path="res://Pildid/tileset.png" id="3_w7slk"]
-[ext_resource type="Texture2D" uid="uid://cr88pemjehqd1" path="res://Pildid/sky.png" id="4_3epjh"]
-[ext_resource type="PackedScene" uid="uid://dcgipbgtok6cp" path="res://Stseenid/vastaneig.tscn" id="5_aelhd"]
+[ext_resource type="PackedScene" uid="uid://bakksvetv1h68" path="res://Stseenid/Ants.tscn" id="1_ge0w2"]
+[ext_resource type="Texture2D" uid="uid://c4jnp0rx2jl7b" path="res://Pildid/tileset.png" id="2_7ckj4"]
+[ext_resource type="PackedScene" uid="uid://cf2vdw6xxei7v" path="res://Stseenid/killzone.tscn" id="3_ljic0"]
+[ext_resource type="Texture2D" uid="uid://cr88pemjehqd1" path="res://Pildid/sky.png" id="4_fihdd"]
+[ext_resource type="PackedScene" uid="uid://dcgipbgtok6cp" path="res://Stseenid/vastaneig.tscn" id="5_nqkvb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnfud"]
-texture = ExtResource("3_w7slk")
+texture = ExtResource("2_7ckj4")
 0:0/0 = 0
 0:1/0 = 0
 2:1/0 = 0
@@ -612,7 +612,7 @@ distance = 2.0
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Ants" parent="." instance=ExtResource("1_ivo64")]
+[node name="Ants" parent="." instance=ExtResource("1_ge0w2")]
 position = Vector2(-315, -125)
 scale = Vector2(1.455, 1.455)
 
@@ -626,7 +626,7 @@ layer_0/tile_data = PackedInt32Array(-458775, 131072, 11, -393239, 131072, 12, -
 position = Vector2(-479.415, -193.385)
 scale = Vector2(0.166462, 0.252588)
 
-[node name="killzone" parent="killzones" instance=ExtResource("3_nevsr")]
+[node name="killzone" parent="killzones" instance=ExtResource("3_ljic0")]
 position = Vector2(1214.96, 1336.41)
 scale = Vector2(8.74074, 5.76037)
 
@@ -635,9 +635,9 @@ position = Vector2(-1, -4)
 shape = SubResource("WorldBoundaryShape2D_a7lka")
 
 [node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(132, -125.5)
+position = Vector2(168, -99)
 scale = Vector2(16, 1.68092)
-texture = ExtResource("4_3epjh")
+texture = ExtResource("4_fihdd")
 
-[node name="VASTANE" parent="." instance=ExtResource("5_aelhd")]
+[node name="VASTANE" parent="." instance=ExtResource("5_nqkvb")]
 position = Vector2(480, -86)
