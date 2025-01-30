@@ -48,16 +48,6 @@ func _physics_process(delta: float) -> void:
 			walljump_count += 1
 			$walljumpparticles.emitting = true
 	
-		
-	
-		 
-		
-		
-	
-	
-
-	
-		
 	
 		
 	# Get the input direction and handle the movement/deceleration.

@@ -30,10 +30,11 @@ layout_mode = 2
 text = "Tutorial
 "
 
-[node name="Level1" type="Button" parent="VBoxContainer"]
+[node name="Testing" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Level 1
+text = "Testing
 "
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/Testing" to="." method="_on_testing_pressed"]

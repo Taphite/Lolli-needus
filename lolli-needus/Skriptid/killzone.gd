@@ -13,4 +13,5 @@ func _on_body_entered(_ants):
 func _on_timer_timeout():
 	Engine.time_scale = 1
 	Sv.player_health = 100
+	Sv.money = 0
 	get_tree().reload_current_scene()
