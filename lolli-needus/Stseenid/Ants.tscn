@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cvns2xu4cb2ef" path="res://Sound effects/SWORD SLASH SOUND EFFECT  NO COPYRIGHT.wav" id="8_34aba"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgpnf"]
-size = Vector2(8, 8)
+size = Vector2(6, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ukh1"]
 animations = [{
@@ -64,9 +64,11 @@ point_count = 2
 [node name="Node2D" type="Node2D"]
 
 [node name="ants" type="CharacterBody2D" parent="."]
+position = Vector2(115, 65)
 script = ExtResource("1_wtbaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ants"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_lgpnf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ants"]
@@ -79,7 +81,6 @@ autoplay = "new_animation"
 
 [node name="Camera2D" type="Camera2D" parent="ants"]
 zoom = Vector2(5, 5)
-limit_bottom = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 
@@ -115,7 +116,8 @@ one_shot = true
 z_index = 4094
 position = Vector2(8, 0)
 sprite_frames = SubResource("SpriteFrames_ofkw7")
-frame_progress = 0.955652
+frame = 3
+frame_progress = 1.0
 
 [node name="SwordSFX" type="AudioStreamPlayer2D" parent="ants/attack_hitbox"]
 stream = ExtResource("8_34aba")
@@ -140,32 +142,6 @@ z_index = 1
 emitting = false
 lifetime = 0.1
 one_shot = true
-
-[node name="stamina" type="Label" parent="ants"]
-z_index = 4096
-offset_left = -115.0
-offset_top = 36.0
-offset_right = -68.0
-offset_bottom = 59.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-text = "AAAA"
-
-[node name="health" type="Label" parent="ants"]
-z_index = 4096
-offset_left = -115.0
-offset_top = 15.0
-offset_right = -72.0
-offset_bottom = 38.0
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "AAAA"
-
-[node name="Money" type="Label" parent="ants"]
-z_index = 4096
-offset_left = -113.0
-offset_top = -66.0
-offset_right = -70.0
-offset_bottom = -43.0
-text = "AAAA"
 
 [connection signal="area_entered" from="ants/attack_hitbox" to="ants" method="_on_attack_hitbox_area_entered"]
 [connection signal="timeout" from="ants/cooldown" to="ants" method="_on_cooldown_timeout"]

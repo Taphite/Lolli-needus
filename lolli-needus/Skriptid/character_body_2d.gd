@@ -7,7 +7,6 @@ const FRICTION = 75
 var jump_count = 0
 var DASH_SPEED = 3
 var is_dashing = false
-var stamina = 100
 var walljump_count = 0
 
 
@@ -25,7 +24,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and jump_count == 1 and !is_on_wall():
 		velocity.y = JUMP_VELOCITY
 		jump_count = 2
-		stamina -= 10
+		Sv.player_stamina -= 10
 		$DJparticles.emitting = true
 		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -54,15 +53,15 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	
-	if Input.is_action_just_pressed("dash") and stamina >= 20:
+	if Input.is_action_just_pressed("dash") and Sv.player_stamina >= 20:
 		if !is_dashing and direction:
 			start_dash()
-			stamina -= 20
+			Sv.player_stamina -= 20
 			
 			
-	if stamina < 100:
-		stamina += 0.2
-	elif stamina == 0:
+	if Sv.player_stamina < 100:
+		Sv.player_stamina += 0.2
+	elif Sv.player_stamina == 0:
 		$Timer.start()
 		
 	if Sv.player_health <= 0:
@@ -73,13 +72,10 @@ func _physics_process(delta: float) -> void:
 		
 	
 	
-	$stamina.text = str(round(stamina))
-	$health.text = str(round(Sv.player_health))
-	$Money.text = str(Sv.money) + "$"
 	
-	if Input.is_action_just_pressed("attack") and stamina >= 10:
+	if Input.is_action_just_pressed("attack") and Sv.player_stamina >= 10:
 		attack()
-		stamina -= 10
+		Sv.player_stamina -= 10
 		$attack_hitbox/Attackanimation.play()
 		$attack_hitbox/SwordSFX.play()
 		
